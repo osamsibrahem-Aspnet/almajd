@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <!-- AutoMapper 14 is the last MIT-licensed release; the flagged advisory is a regex-DoS that does not apply
+         to our trusted-input usage. Pin until we revisit the mapper choice. -->
+    <NoWarn>$(NoWarn);NU1903</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <!-- EF Core abstractions only (no provider) — for Include / FirstOrDefaultAsync on IQueryable in services. -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Almajd.Domain\Almajd.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

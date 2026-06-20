@@ -1,0 +1,57 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.cache
+*.log
+
+## EF Core / SQLite (if used locally)
+*.db
+*.db-shm
+*.db-wal
+
+## OS
+.DS_Store
+Thumbs.db
+
+## Secrets
+appsettings.Development.json
+appsettings.Production.json
+*.pfx
+*.publishSettings
+.env
+
+## Build / publish artifacts
+publish-final/
+publish-api/
+publish/
+
+## Test results / dumps
+TestResults/
+*.trx
+*.dmp
+*.coverage
+
+## Frontends
+node_modules/
+dist/
+.angular/
+*.tsbuildinfo
+
+## IDE
+.idea/
+.vscode/
+
+## wwwroot uploads (keep folder, ignore content)
+Almajd.Api/wwwroot/ProductImages/*
+!Almajd.Api/wwwroot/ProductImages/.gitkeep
+Almajd.Api/wwwroot/InvoicePdfs/*
+!Almajd.Api/wwwroot/InvoicePdfs/.gitkeep
+Almajd.Api/wwwroot/KycDocuments/*
+!Almajd.Api/wwwroot/KycDocuments/.gitkeep
+Almajd.Api/wwwroot/ReturnPhotos/*
+!Almajd.Api/wwwroot/ReturnPhotos/.gitkeep
+Almajd.Api/wwwroot/ExpenseReceipts/*
+!Almajd.Api/wwwroot/ExpenseReceipts/.gitkeep

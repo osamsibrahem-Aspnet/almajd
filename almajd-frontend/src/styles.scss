@@ -1,0 +1,361 @@
+// Emerald Finance — Almajd design tokens
+// Place BEFORE bootstrap import
+$primary:      #059669;
+$success:      #15803D;
+$warning:      #B45309;
+$danger:       #B91C1C;
+$body-bg:      #F0FDF4;
+$body-color:   #0A1A14;
+$border-color: #BBF7D0;
+
+// Sidebar accent
+$sidebar-bg:   #DCFCE7;
+$sidebar-fg:   #0A1A14;
+
+// Bootstrap overrides
+$btn-border-radius: 0.375rem;
+$card-border-radius: 0.5rem;
+$font-family-sans-serif: 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+@import "bootstrap/scss/bootstrap";
+
+// CSS custom properties (Angular global theme)
+:root {
+  --primary: #059669;
+  --primary-hover: #047857;
+  --primary-soft: rgba(5, 150, 105, 0.10);
+  --bg: #F0FDF4;
+  --bg-elev: #FFFFFF;
+  --sidebar: #DCFCE7;
+  --fg: #0A1A14;
+  --fg-muted: #475569;
+  --border: #BBF7D0;
+  --success: #15803D;
+  --warning: #B45309;
+  --danger: #B91C1C;
+}
+
+[data-theme="dark"] {
+  --primary: #10B981;
+  --primary-hover: #059669;
+  --primary-soft: rgba(16, 185, 129, 0.15);
+  --bg: #0A1410;
+  --bg-elev: #10201A;
+  --sidebar: #070F0C;
+  --fg: #E5F0EA;
+  --fg-muted: #94A39B;
+  --border: #1A2F26;
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+.sidebar {
+  background-color: var(--sidebar);
+  min-height: 100vh;
+  width: 260px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+
+  .nav-link {
+    color: var(--fg);
+    border-radius: 0.375rem;
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+
+    &:hover {
+      background-color: var(--primary-soft);
+      color: var(--primary);
+    }
+
+    &.active {
+      background-color: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    i {
+      width: 1.1rem;
+      text-align: center;
+    }
+  }
+
+  .sidebar-brand {
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid var(--border);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+.topbar {
+  background-color: var(--bg-elev);
+  border-bottom: 1px solid var(--border);
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  gap: 1rem;
+}
+
+.admin-shell {
+  display: flex;
+  min-height: 100vh;
+
+  .shell-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .page-content {
+    padding: 1.5rem;
+    flex: 1;
+    overflow-y: auto;
+  }
+}
+
+// Status badge colors
+.badge-submitted     { background-color: #6c757d; color: #fff; }
+.badge-underreview   { background-color: #B45309; color: #fff; }
+.badge-approved      { background-color: #059669; color: #fff; }
+.badge-inpreparation { background-color: #0dcaf0; color: #000; }
+.badge-readytoship   { background-color: #6610f2; color: #fff; }
+.badge-shipped       { background-color: #0d6efd; color: #fff; }
+.badge-delivered     { background-color: #15803D; color: #fff; }
+.badge-cancelled     { background-color: #B91C1C; color: #fff; }
+.badge-draft         { background-color: #adb5bd; color: #000; }
+.badge-closed        { background-color: #343a40; color: #fff; }
+
+.badge-active    { background-color: #15803D; color: #fff; }
+.badge-suspended { background-color: #B91C1C; color: #fff; }
+.badge-followup  { background-color: #B45309; color: #fff; }
+
+.badge-vip   { background-color: #7c3aed; color: #fff; }
+.badge-mid   { background-color: #059669; color: #fff; }
+.badge-small { background-color: #6c757d; color: #fff; }
+
+.table {
+  --bs-table-bg: var(--bg-elev);
+}
+
+.table-hover tbody tr:hover {
+  background-color: var(--primary-soft);
+}
+
+.order-timeline {
+  display: flex;
+  flex-direction: column;
+
+  .timeline-step {
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    position: relative;
+
+    &:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 28px;
+      bottom: 0;
+      width: 2px;
+      background-color: var(--border);
+    }
+
+    &.completed::before {
+      background-color: var(--success);
+    }
+
+    .step-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.7rem;
+
+      &.done {
+        background-color: var(--success);
+        color: #fff;
+      }
+
+      &.current {
+        background-color: var(--primary);
+        color: #fff;
+      }
+    }
+
+    .step-content {
+      flex: 1;
+
+      .step-label {
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .step-time {
+        font-size: 0.78rem;
+        color: var(--fg-muted);
+      }
+    }
+  }
+}
+
+.category-tree {
+  .category-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+
+    &:hover { background-color: var(--primary-soft); }
+
+    .cat-name { flex: 1; font-size: 0.9rem; }
+  }
+
+  .children { padding-left: 1.5rem; }
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.page-header {
+  margin-bottom: 1.5rem;
+
+  h1, h2 {
+    font-weight: 600;
+    color: var(--fg);
+    font-size: 1.4rem;
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    z-index: 1050;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+
+    &.open { transform: translateX(0); }
+  }
+
+  .page-content {
+    padding: 1rem;
+  }
+
+  // Prevent horizontal body scroll — tables scroll within card
+  body {
+    overflow-x: hidden;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  // Remove fixed max-widths on forms at small viewport
+  .form-control,
+  .form-select {
+    max-width: 100% !important;
+  }
+}
+
+[dir="rtl"] {
+  .sidebar {
+    border-right: none;
+    border-left: 1px solid var(--border);
+    transform: translateX(100%);
+
+    &.open { transform: translateX(0); }
+  }
+
+  // Flip sidebar position to the right in RTL
+  .admin-shell {
+    flex-direction: row-reverse;
+  }
+
+  // Chevron direction for nav expand button (RTL)
+  .sidebar .nav-link {
+    text-align: right;
+  }
+
+  // Mirror margin start/end for children nav indentation
+  .nav .nav {
+    margin-inline-start: 1rem;
+    margin-inline-end: 0;
+    margin-left: 0 !important;
+    margin-right: 1rem !important;
+  }
+
+  // Arrow icons flip
+  .fa-arrow-left::before { content: "\f061"; } // fa-arrow-right
+  .fa-arrow-right::before { content: "\f060"; } // fa-arrow-left
+
+  // Table alignment in RTL
+  .text-end { text-align: start !important; }
+  .text-start { text-align: end !important; }
+  table th, table td { text-align: right; }
+  table .text-end, table .text-center { text-align: inherit; }
+
+  // Dropdown end alignment
+  .dropdown-menu-end {
+    right: auto !important;
+    left: 0 !important;
+  }
+}
+
+// Ensure tables don't overflow the page container
+.card .table-responsive {
+  max-width: 100%;
+}
+
+// Customer portal — prevent iOS zoom on inputs < 16px
+@media (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="search"],
+  input[type="number"],
+  textarea,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+// Viewport meta is set in index.html — ensure no fixed widths on shop pages
+.shop-grid-container {
+  width: 100%;
+  max-width: 100%;
+}
